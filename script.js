@@ -155,9 +155,17 @@ let currentTasks = [];
 let completedState = [];
 let isBingoAchieved = false;
 
-// Theme, Style and Size States
-let currentTheme = localStorage.getItem('adhd_bingo_theme') || 'light';
-let currentStyle = localStorage.getItem('adhd_bingo_style') || 'minimal';
+// 时间感知：晚上 19:00 – 早上 07:00 默认进入黑夜+幻彩，其余时段白天+幻彩
+function getSmartDefaultTheme() {
+    const h = new Date().getHours();
+    return (h >= 19 || h < 7) ? 'dark' : 'light';
+}
+function getSmartDefaultStyle() {
+    return 'dopamine'; // 任何时候默认都是幻彩
+}
+
+let currentTheme = localStorage.getItem('adhd_bingo_theme') || getSmartDefaultTheme();
+let currentStyle = localStorage.getItem('adhd_bingo_style') || getSmartDefaultStyle();
 let appTitle = localStorage.getItem('adhd_bingo_title') || 'ADHD Bingo';
 let globalGridSize = parseInt(localStorage.getItem('adhd_bingo_size')) || 5;
 
@@ -550,7 +558,10 @@ function bindEvents() {
     });
 
     if (btnStyleToggle) btnStyleToggle.addEventListener('click', () => {
-        currentStyle = currentStyle === 'minimal' ? 'dopamine' : 'minimal';
+        // 三档循环：minimal → dopamine → mint → minimal
+        if (currentStyle === 'minimal')       currentStyle = 'dopamine';
+        else if (currentStyle === 'dopamine') currentStyle = 'mint';
+        else                                  currentStyle = 'minimal';
         localStorage.setItem('adhd_bingo_style', currentStyle);
         applyTheme();
         checkStatus(false, true); 
