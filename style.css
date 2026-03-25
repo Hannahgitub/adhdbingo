@@ -67,46 +67,6 @@
     100% { background-position: 0% 50%; }
 }
 
-/* === 薄荷绿主题 === */
-[data-style="mint"] {
-    --primary-accent: #3DAB7B;
-    --ring-color: #3DAB7B;
-    --box-bg: rgba(225, 248, 238, 0.8);
-    --ring-bg: rgba(209, 244, 228, 0.9);
-    --modal-bg: #F0FBF5;
-    --bg-color: #E8F8EF;
-    --text-primary: #1B5E40;
-    --text-secondary: #6BBF95;
-    --box-text: #2E7D5A;
-    --box-bg-active: #3DAB7B;
-}
-
-[data-theme="dark"][data-style="mint"] {
-    --primary-accent: #4DD392;
-    --ring-color: #4DD392;
-    --box-bg: rgba(18, 42, 32, 0.8);
-    --ring-bg: rgba(25, 55, 42, 0.9);
-    --modal-bg: #0F2A1E;
-    --bg-color: #0B1F16;
-    --text-primary: #A7F3C8;
-    --text-secondary: #4D9970;
-    --box-text: #89D9AB;
-    --box-bg-active: #2E7D5A;
-}
-
-[data-style="mint"] body,
-[data-style="mint"] .app-container {
-    background: linear-gradient(135deg, #C8F0DC, #D8F5E8, #E2FAF0, #C8EEE2);
-    background-size: 300% 300%;
-    animation: bgPhantom 14s ease infinite;
-}
-
-[data-theme="dark"][data-style="mint"] body,
-[data-theme="dark"][data-style="mint"] .app-container {
-    background: linear-gradient(135deg, #0B2418, #0D2B1E, #0F3224, #0A1F15);
-    background-size: 300% 300%;
-    animation: bgPhantom 14s ease infinite;
-}
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -396,30 +356,6 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* 薄荷绿：清新自然渐变七彩 */
-[data-style="mint"] .bingo-cell.completed:nth-child(7n+1) { background-color: #3DAB7B; color: #FFF; box-shadow: 0 4px 12px rgba(61,171,123,0.3); border: none; }
-[data-style="mint"] .bingo-cell.completed:nth-child(7n+2) { background-color: #45B885; color: #FFF; box-shadow: 0 4px 12px rgba(69,184,133,0.3); border: none; }
-[data-style="mint"] .bingo-cell.completed:nth-child(7n+3) { background-color: #52C48F; color: #FFF; box-shadow: 0 4px 12px rgba(82,196,143,0.3); border: none; }
-[data-style="mint"] .bingo-cell.completed:nth-child(7n+4) { background-color: #2E9E6F; color: #FFF; box-shadow: 0 4px 12px rgba(46,158,111,0.3); border: none; }
-[data-style="mint"] .bingo-cell.completed:nth-child(7n+5) { background-color: #57C896; color: #FFF; box-shadow: 0 4px 12px rgba(87,200,150,0.3); border: none; }
-[data-style="mint"] .bingo-cell.completed:nth-child(7n+6) { background-color: #34A878; color: #FFF; box-shadow: 0 4px 12px rgba(52,168,120,0.3); border: none; }
-[data-style="mint"] .bingo-cell.completed:nth-child(7n)   { background-color: #48BE8A; color: #FFF; box-shadow: 0 4px 12px rgba(72,190,138,0.3); border: none; }
-
-[data-style="mint"] .bingo-cell.completed { text-shadow: none; border: 1px solid transparent; }
-
-[data-style="mint"] .bingo-cell:not(.completed) {
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 4px 12px rgba(61,171,123, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    background: rgba(255,255,255,0.55);
-}
-[data-theme="dark"][data-style="mint"] .bingo-cell:not(.completed) {
-    box-shadow: 0 4px 12px rgba(0,0,0, 0.25);
-    border: 1px solid rgba(77,211,146, 0.08);
-    background: rgba(15, 50, 35, 0.6);
-}
-
 /* Footer Section */
 .footer { display: flex; justify-content: space-between; align-items: center; padding-top: 10px; }
 .stats { font-size: 14px; color: var(--text-secondary); font-weight: 500; }
@@ -500,4 +436,50 @@ body {
 .mode-del-btn:hover {
     color: #EF4444;
     background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* 帮助引导弹窗 */
+.help-modal-content {
+    max-width: 400px;
+}
+.help-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 4px;
+}
+.help-card {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    background: var(--ring-bg);
+    border-radius: 14px;
+    padding: 12px 14px;
+    transition: background 0.3s;
+}
+.help-card-icon {
+    font-size: 22px;
+    width: 32px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.help-card-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.help-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.help-card-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.help-card-desc strong {
+    color: var(--primary-accent);
+    font-weight: 600;
 }

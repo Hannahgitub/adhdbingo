@@ -558,10 +558,7 @@ function bindEvents() {
     });
 
     if (btnStyleToggle) btnStyleToggle.addEventListener('click', () => {
-        // 三档循环：minimal → dopamine → mint → minimal
-        if (currentStyle === 'minimal')       currentStyle = 'dopamine';
-        else if (currentStyle === 'dopamine') currentStyle = 'mint';
-        else                                  currentStyle = 'minimal';
+        currentStyle = currentStyle === 'minimal' ? 'dopamine' : 'minimal';
         localStorage.setItem('adhd_bingo_style', currentStyle);
         applyTheme();
         checkStatus(false, true); 
@@ -727,6 +724,22 @@ function openModal() {
 function closeModal() {
     if (poolModal) poolModal.classList.remove('active');
 }
+
+const helpModal = document.getElementById('help-modal');
+const btnHelp = document.getElementById('btn-help');
+const closeHelpBtn = document.getElementById('close-help-modal');
+
+function openHelpModal() {
+    if (helpModal) helpModal.classList.add('active');
+}
+function closeHelpModal() {
+    if (helpModal) helpModal.classList.remove('active');
+}
+if (btnHelp) btnHelp.addEventListener('click', openHelpModal);
+if (closeHelpBtn) closeHelpBtn.addEventListener('click', closeHelpModal);
+if (helpModal) helpModal.addEventListener('click', (e) => {
+    if (e.target === helpModal) closeHelpModal();
+});
 
 function renderPoolList() {
     if (!taskChipsContainer) return;

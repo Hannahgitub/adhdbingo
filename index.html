@@ -99,6 +99,9 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
                     重置
                 </button>
+                <button class="btn btn-help" id="btn-help" title="使用指南">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                </button>
             </div>
         </footer>
     </div>
@@ -122,7 +125,52 @@
             </div>
         </div>
     </div>
+    <!-- 帮助引导弹窗 -->
+    <div class="modal-overlay" id="help-modal">
+        <div class="modal-content help-modal-content">
+            <div class="modal-header">
+                <h3>✦ 使用指南</h3>
+                <button class="close-btn" id="close-help-modal">&times;</button>
+            </div>
+            <div class="help-cards">
+                <div class="help-card">
+                    <div class="help-card-icon">✏️</div>
+                    <div class="help-card-body">
+                        <div class="help-card-title">修改主题名称</div>
+                        <div class="help-card-desc">点击顶部大标题，即可直接编辑。改成你想打卡的主题，比如「异地恋 Bingo」「考研冲刺 Bingo」。</div>
+                    </div>
+                </div>
+                <div class="help-card">
+                    <div class="help-card-icon">✨</div>
+                    <div class="help-card-body">
+                        <div class="help-card-title">AI 生成词条</div>
+                        <div class="help-card-desc">先改好标题主题，再点 <strong>AI bingo!</strong> 按钮，AI 会根据你的主题自动生成 25 个专属打卡词条！</div>
+                    </div>
+                </div>
+                <div class="help-card">
+                    <div class="help-card-icon">🗓️</div>
+                    <div class="help-card-body">
+                        <div class="help-card-title">切换日期</div>
+                        <div class="help-card-desc">点击顶部日期可以呼出日历，切换到任意一天查看当天的打卡记录，每天独立存档。</div>
+                    </div>
+                </div>
+                <div class="help-card">
+                    <div class="help-card-icon">▽</div>
+                    <div class="help-card-body">
+                        <div class="help-card-title">切换模式</div>
+                        <div class="help-card-desc">点击标题旁边的 <strong>▽</strong> 箭头，可以在 ADHD、雅思、异地恋等内置模式之间自由切换。</div>
+                    </div>
+                </div>
+                <div class="help-card">
+                    <div class="help-card-icon">⚙️</div>
+                    <div class="help-card-body">
+                        <div class="help-card-title">自定义词库</div>
+                        <div class="help-card-desc">点底部 <strong>词库</strong> 按钮可手动添加或删除打卡词条，自由打造你的专属 Bingo 清单。</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    <script src="script.js"></script>
 </body>
 </html>
